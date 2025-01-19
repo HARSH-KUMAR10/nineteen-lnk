@@ -38,13 +38,32 @@
           #4caf50
         ); /* Darker gradient on hover */
       }
+
+      @media screen and (max-width: 600px) {
+        .tasks-container {
+          display: flex;
+          flex-direction: column !important;
+          gap: 1rem;
+        }
+        .task-cards {
+          display: flex;
+          flex-direction: row !important;
+          gap: 1rem;
+        }
+        .card-title {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 300px !important;
+        }
+      }
     </style>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script type="module" crossorigin src="/assets/index-B6NHy9D-.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-4IZYDnZ1.css">
+    <script type="module" crossorigin src="/assets/index-BPby8sQZ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-gz7WOt1X.css">
   </head>
   <body>
     <div id="app"></div>
