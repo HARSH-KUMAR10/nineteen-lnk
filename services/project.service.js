@@ -155,7 +155,11 @@ exports.getCumulativeHoursByUser = async (userId) => {
     logger.info(
       `Cumulative hours fetched for all projects of user :: userId: ${userId}`
     );
-    return projectDetails;
+    return projectDetails.sort((a, b) => {
+      const sumA = a.totalHours.backlog + a.totalHours.started;
+      const sumB = b.totalHours.backlog + b.totalHours.started;
+      return sumB - sumA; // Descending order
+    });
   } catch (err) {
     logger.error(`Error in getCumulativeHoursByUser :: ${err.message}`);
     throw err;

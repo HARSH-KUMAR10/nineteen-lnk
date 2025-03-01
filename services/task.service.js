@@ -99,7 +99,11 @@ exports.getTasksWithSubtaskHours = async (projectId) => {
       `Tasks with subtask hours calculated for projectId: ${projectId}`
     );
 
-    return tasksWithHours;
+    return tasksWithHours.sort((a, b) => {
+      const sumA = a.totalHours.backlog + a.totalHours.started;
+      const sumB = b.totalHours.backlog + b.totalHours.started;
+      return sumB - sumA; // Descending order
+    });
   } catch (err) {
     logger.error(`Error in getTasksWithSubtaskHours :: ${err.message}`);
     throw err;

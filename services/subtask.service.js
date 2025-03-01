@@ -18,7 +18,7 @@ exports.getSubtasksByTaskId = async (taskId) => {
   try {
     const subtasks = await Subtask.find({ taskId });
     logger.info(`Subtasks fetched for taskId :: ${taskId}`);
-    return subtasks;
+    return subtasks.sort((a, b) => b.estimated_time - a.estimated_time);
   } catch (err) {
     logger.error(`Error in getSubtasksByTaskId :: ${err.message}`);
     throw err;
